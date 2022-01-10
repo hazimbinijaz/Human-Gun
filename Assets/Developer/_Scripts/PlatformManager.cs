@@ -11,6 +11,8 @@ public class PlatformManager : MonoBehaviour
     private GameObject m_Player;
     private int CurrentPlatform;
     private HumanGun m_PlayerGun;
+
+    [SerializeField] private MyCrosshair m_Crosshair;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,11 @@ public class PlatformManager : MonoBehaviour
     [Button("Next Platform")]
     public void NextPlatform()
     {
+        m_Crosshair.IsShootable = false;
         CurrentPlatform++;
         Platforms[CurrentPlatform].gameObject.SetActive(true);
         m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, 1f);
-        m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 1f);
+        m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 1f).OnComplete(()=>m_Crosshair.IsShootable = true);
     }
 
     public void OnEnemyDeath(int NoOfDeaths)
