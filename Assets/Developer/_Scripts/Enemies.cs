@@ -9,16 +9,17 @@ public class Enemies : MonoBehaviour
     public float Speed;
     private Animator m_Anim;
     private GameObject m_Player;
-
+    private bool Run;
     private Platform m_Platform;
     // Start is called before the first frame update
     void Start()
     {
+        Run = false;
         Self = transform;
         m_RagdollController = GetComponent<RagdollController>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Anim = GetComponent<Animator>();
-        m_Anim.SetBool("Run",true);
+       
         m_Player = TheGameManager.Instance.Player;
         m_Platform = GetComponentInParent<Platform>();
     }
@@ -33,10 +34,19 @@ public class Enemies : MonoBehaviour
         }
     }
 
+    public void StartPlayer()
+    {
+        m_Anim.SetBool("Run",true);
+        Run = true;
+    }
+    
     private void Update()
     {
-        transform.DOLookAt(m_Player.transform.position, 0.2f);
-        transform.position += transform.forward * Speed * Time.deltaTime;
+        if (Run)
+        {
+            transform.DOLookAt(m_Player.transform.position, 0.2f);
+            transform.position += transform.forward * Speed * Time.deltaTime;
+        }
     }
 
     public void Dead()

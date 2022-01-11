@@ -37,15 +37,8 @@ public class HumanGun : MonoBehaviour
         Transform Hip = m_OtherEnemy.transform.GetChild(0);
         m_IsHumanLoaded = !m_IsHumanLoaded;
         m_LoadedHuman = m_OtherEnemy;
-        // Hip.GetComponent<Rigidbody>().isKinematic = true;
-        // Hip.GetComponent<Collider>().enabled = false;
         Hip.DOLocalRotate(new Vector3(-20f, 0f, 0f), 0.1f);
-        // Sequence MySeq = DOTween.Sequence();
-        // MySeq.Append(Hip.DOMoveY(5, 1f));
-        // MySeq.Append(Hip.DOMove(m_Muzzle.position, 1f));
-        // MySeq.OnComplete(() => m_LoadedHuman.SetActive(false));
-        // Hip.DOMoveY(5, 1f);
-        // Hip.DOScale(new Vector3(0,0,0), 0.8f);
+        Hip.DOScale(new Vector3(0,0,0), 0.8f);
         Hip.DOMove(m_Muzzle.position, 1f).OnComplete(() =>
         {
             m_LoadedHuman.SetActive(false);
@@ -58,11 +51,13 @@ public class HumanGun : MonoBehaviour
 
      void ShootItOut(GameObject m_OtherEnemy)
     {
+        
         foreach (Rigidbody rigidbody in m_OtherEnemy.GetComponentsInChildren<Rigidbody>())
         {
             rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
         }
         Transform Hip=m_LoadedHuman.transform.GetChild(0);
+        Hip.DOScale(Vector3.one, 0.8f);
         m_IsHumanLoaded = !m_IsHumanLoaded;
         m_LoadedHuman.SetActive(true);
         m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce).OnComplete(()=>m_HumanInMagazine.SetActive(false));

@@ -19,6 +19,7 @@ public class PlatformManager : MonoBehaviour
         CurrentPlatform = 0;
         m_Player = TheGameManager.Instance.Player;
         m_PlayerGun = m_Player.GetComponentInChildren<HumanGun>();
+        Platforms[CurrentPlatform].EnableAllEnemies();
     }
 
     // Update is called once per frame
@@ -33,7 +34,11 @@ public class PlatformManager : MonoBehaviour
         CurrentPlatform++;
         Platforms[CurrentPlatform].gameObject.SetActive(true);
         m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, 1f);
-        m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 1f).OnComplete(()=>m_Crosshair.IsShootable = true);
+        m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 3f).OnComplete(()=>
+        {
+            m_Crosshair.IsShootable = true;
+            Platforms[CurrentPlatform].EnableAllEnemies();
+        });
     }
 
     public void OnEnemyDeath(int NoOfDeaths)
