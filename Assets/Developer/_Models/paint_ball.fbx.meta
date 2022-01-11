@@ -3,7 +3,22 @@ guid: 9e162fda5705bca4db53203989dc4df7
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: as
+    second: {fileID: 2100000, guid: bd3782796381246ce92e6ac987ea09b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: atlas_color_1Material
+    second: {fileID: 2100000, guid: 2753c75d4f48d42e3a3a553248ee8840, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: atlas color
+    second: {fileID: 2800000, guid: 811e1c2a12a804fed96f1100fd535191, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +100,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.004
+    globalScale: 0.4
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
