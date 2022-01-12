@@ -7,7 +7,7 @@ public class Enemies : MonoBehaviour
     private RagdollController m_RagdollController;
     private Rigidbody m_Rigidbody;
     public float Speed;
-    private Animator m_Anim;
+    public Animator m_Anim;
     private GameObject m_Player;
     private bool Run;
     private Platform m_Platform;
@@ -19,7 +19,6 @@ public class Enemies : MonoBehaviour
         m_RagdollController = GetComponent<RagdollController>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Anim = GetComponent<Animator>();
-       
         m_Player = TheGameManager.Instance.Player;
         m_Platform = GetComponentInParent<Platform>();
     }
@@ -36,7 +35,7 @@ public class Enemies : MonoBehaviour
 
     public void StartPlayer()
     {
-        m_Anim.SetBool("Run",true);
+        GetComponent<Animator>().SetBool("Run",true);
         Run = true;
     }
     

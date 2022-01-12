@@ -32,32 +32,34 @@ public class HumanGun : MonoBehaviour
     void LoadInGun(GameObject m_OtherEnemy)
     {
         Crosshair.IsShootable = false;
-        m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
+        // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
         m_OtherEnemy.GetComponent<Enemies>().enabled = false;
         Transform Hip = m_OtherEnemy.transform.GetChild(0);
         m_IsHumanLoaded = !m_IsHumanLoaded;
         m_LoadedHuman = m_OtherEnemy;
-        Hip.DOLocalRotate(new Vector3(-20f, 0f, 0f), 0.1f);
-        Hip.DOScale(new Vector3(0,0,0), 0.8f);
-        Hip.DOMove(m_Muzzle.position, 1f).OnComplete(() =>
+        m_OtherEnemy.transform.DOLocalRotate(new Vector3(-20f, 0f, 0f), 0.1f);
+        m_OtherEnemy.GetComponent<Animator>().SetBool("Suck In",true);
+        // m_OtherEnemy.transform.DOScale(new Vector3(0,0,0), 0.8f);
+        m_OtherEnemy.transform.DOMove(m_Muzzle.position + new Vector3(0f,-1.5f,0f), 1f).OnComplete(() =>
         {
             m_LoadedHuman.SetActive(false);
             m_HumanInMagazine.SetActive(true);
             m_HumanInMagazine.transform.DOScale(new Vector3(0.2f,0.2f,0.2f), 0.2f).SetEase(Ease.OutBounce);
             Crosshair.IsShootable = true;
+            m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
         });;
         
     }
 
      void ShootItOut(GameObject m_OtherEnemy)
     {
-        
+        // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
         foreach (Rigidbody rigidbody in m_OtherEnemy.GetComponentsInChildren<Rigidbody>())
         {
             rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
         }
         Transform Hip=m_LoadedHuman.transform.GetChild(0);
-        Hip.DOScale(Vector3.one, 0.8f);
+        // Hip.DOScale(Vector3.one, 0.8f);
         m_IsHumanLoaded = !m_IsHumanLoaded;
         m_LoadedHuman.SetActive(true);
         m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce).OnComplete(()=>m_HumanInMagazine.SetActive(false));
