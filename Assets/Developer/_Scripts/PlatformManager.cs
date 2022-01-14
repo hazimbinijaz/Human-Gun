@@ -32,19 +32,26 @@ public class PlatformManager : MonoBehaviour
     {
         m_Crosshair.IsShootable = false;
         CurrentPlatform++;
-        Platforms[CurrentPlatform].gameObject.SetActive(true);
-        m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, 1f);
-        m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 3f).OnComplete(()=>
+        if (CurrentPlatform > Platforms.Count - 1)
         {
-            m_Crosshair.IsShootable = true;
-            Platforms[CurrentPlatform].EnableAllEnemies();
-        });
+            TheGameManager.Instance.LevelWin();
+        }
+        else
+        {
+            Platforms[CurrentPlatform].gameObject.SetActive(true);
+            m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, 1f);
+            m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 3f).OnComplete(()=>
+            {
+                m_Crosshair.IsShootable = true;
+                Platforms[CurrentPlatform].EnableAllEnemies();
+            });
+        }
     }
 
     public void OnEnemyDeath(int NoOfDeaths)
     {
         Platforms[CurrentPlatform].CurrentNoOfEnemies -= NoOfDeaths;
-        if(Platforms[CurrentPlatform].CurrentNoOfEnemies<=0)
-            NextPlatform();
+        if (Platforms[CurrentPlatform].CurrentNoOfEnemies <= 0)
+            Invoke(nameof(NextPlatform), 2f);
     }
 }

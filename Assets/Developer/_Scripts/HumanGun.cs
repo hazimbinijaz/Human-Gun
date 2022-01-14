@@ -45,8 +45,8 @@ public class HumanGun : MonoBehaviour
             m_LoadedHuman.SetActive(false);
             m_HumanInMagazine.SetActive(true);
             m_HumanInMagazine.transform.DOScale(new Vector3(0.2f,0.2f,0.2f), 0.2f).SetEase(Ease.OutBounce);
-            Crosshair.IsShootable = true;
             m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
+            Crosshair.IsShootable = true;
         });;
         
     }

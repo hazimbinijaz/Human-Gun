@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using DG.Tweening;
 
 public class TheGameManager : MonoBehaviour
 {
     public static TheGameManager Instance=null;
     public int _level;
     public GameObject Player;
+    public event Action OnGameFail,OnGameWin;
+    private Camera m_Camera;
     private void Awake()
     {
         if (Instance == null)
@@ -15,20 +19,23 @@ public class TheGameManager : MonoBehaviour
         DontDestroyOnLoad(Instance);
         Application.targetFrameRate = 60;
         _level = PlayerPrefs.GetInt("Level",1);
+        m_Camera=Camera.main;
     }
 
-    // Start is called before the first frame update
-    void Start()
+ 
+    public void LevelFail()
     {
-        
+        UIManager.Instance.ShowLevelFailUI();
+        OnGameFail?.Invoke();
+        m_Camera.DOShakeRotation(1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    
+    public void LevelWin()
     {
-        
+        UIManager.Instance.ShowLevelCompleteUI();
     }
-
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

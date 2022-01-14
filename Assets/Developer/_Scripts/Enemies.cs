@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,18 +10,25 @@ public class Enemies : MonoBehaviour
     public float Speed;
     public Animator m_Anim;
     private GameObject m_Player;
-    private bool Run;
+    public bool Run;
     private Platform m_Platform;
+
+    private void Awake()
+    {
+        Run = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Run = false;
+        // Run = false;
         Self = transform;
         m_RagdollController = GetComponent<RagdollController>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Anim = GetComponent<Animator>();
         m_Player = TheGameManager.Instance.Player;
         m_Platform = GetComponentInParent<Platform>();
+        TheGameManager.Instance.OnGameFail += StopEnemy;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -30,6 +38,14 @@ public class Enemies : MonoBehaviour
             if(other.transform.GetComponent<Enemies>())
                 other.transform.GetComponent<Enemies>().Dead();
             Dead();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("BorderLine"))
+        {
+            TheGameManager.Instance.LevelFail();
         }
     }
 
@@ -43,11 +59,17 @@ public class Enemies : MonoBehaviour
     {
         if (Run)
         {
-            transform.DOLookAt(m_Player.transform.position, 0.2f);
+            transform.DOLookAt(m_Player.transform.position, 0.2f,AxisConstraint.Y);
             transform.position += transform.forward * Speed * Time.deltaTime;
         }
     }
 
+    void StopEnemy()
+    {
+        Run = false;
+        m_Anim.SetBool("Run",false);
+    }
+    
     public void Dead()
     {
         GetComponent<RagdollController>().RagdollOn();

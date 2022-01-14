@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using TCKAxisType = TouchControlsKit.EAxisType;
@@ -12,8 +13,10 @@ public class MyCrosshair : MonoBehaviour
     public float SmoothSpeed;
     public bool IsShootable;
     private Camera m_Camera;
-    [SerializeField] private DOTweenAnimation m_SwayAnimation;
+    [SerializeField] private Transform ToSway;
     [SerializeField] private LayerMask RaycastLayer;
+
+    private bool Swaying;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class MyCrosshair : MonoBehaviour
         IsShootable = true;
         m_Gun.Crosshair = this;
         m_Camera = Camera.main;
+        Swaying = false;
     }
 
     // Update is called once per frame
@@ -54,16 +58,31 @@ public class MyCrosshair : MonoBehaviour
         MoveVertical   = TCKInput.GetAxis( $"Movepad", TCKAxisType.Vertical   ) * 10f;
         // if (MoveHorizontal != 0 || MoveVertical != 0)
         // {
-        //     print($"1");
-        //     if(!m_SwayAnimation.isActiveAndEnabled)
-        //         m_SwayAnimation.DOPause();
+        //     if (Swaying)
+        //     {
+        //         print("Sway ended");
+        //         Swaying = false;
+        //         StopCoroutine("Sway");
+        //         ToSway.DOKill();
+        //         ToSway.transform.eulerAngles=Vector3.zero;
+        //     }
         // }
         // else
         // {
-        //     print($"2");
-        //     if (!m_SwayAnimation.isActiveAndEnabled)
-        //         m_SwayAnimation.DOPlay();
+        //     if (!Swaying)
+        //     {
+        //         print("Sway started");
+        //         Swaying = true;
+        //         StartCoroutine("Sway");
+        //     }
         // }
+    }
+
+    private IEnumerator Sway()
+    {
+        yield return new WaitForSeconds(3f);
+        ToSway.DORotate(new Vector3(0, -10, 0), 1.5f).SetEase(Ease.InOutFlash).SetLoops(-1,LoopType.Yoyo);
+        yield return null;
     }
     
     void Shoot()

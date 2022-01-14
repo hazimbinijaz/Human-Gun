@@ -29,6 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Developer/_Scripts/MyCrosshair.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Developer/_Scripts/Platform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348fb5ecc9e4e689f37f7d7fadaea9a27a00/4c/ae376b06/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5406a456cf734443b3d02a7d123287f1299290/1e/2ae0dd84/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="22FFgY61DWV0KCzaOiDdTXxHiR7" />
   <component name="ProjectViewState">
@@ -86,6 +87,8 @@
       <workItem from="1640278315579" duration="24042000" />
       <workItem from="1641152790168" duration="4787000" />
       <workItem from="1641924337262" duration="9743000" />
+      <workItem from="1642101203482" duration="1222000" />
+      <workItem from="1642102559964" duration="5739000" />
     </task>
     <servers />
   </component>
