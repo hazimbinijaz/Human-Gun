@@ -12,7 +12,7 @@ public class MyCrosshair : MonoBehaviour
     private Vector3 FinalPos;
     public float SmoothSpeed;
     public bool IsShootable;
-    private Camera m_Camera;
+    [SerializeField] Camera m_Camera;
     [SerializeField] private Transform ToSway;
     [SerializeField] private LayerMask RaycastLayer;
 
@@ -23,7 +23,6 @@ public class MyCrosshair : MonoBehaviour
         UpdateDimension();
         IsShootable = true;
         m_Gun.Crosshair = this;
-        m_Camera = Camera.main;
         Swaying = false;
     }
 

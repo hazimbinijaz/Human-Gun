@@ -29,13 +29,13 @@ public class RagdollController : MonoBehaviour
         foreach (Rigidbody rigidbody in GetComponentsInChildren<Rigidbody>())
         {
             rigidbody.isKinematic = false;
-            rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
+            // rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
         }
 
         m_Anim.enabled = false;
         m_Collider.enabled = false;
         m_RigidBody.isKinematic = true;
-        gameObject.layer= LayerMask.NameToLayer($"Dead");
+        // gameObject.layer= LayerMask.NameToLayer($"Dead");
     }
 
     public void RagdollOff()

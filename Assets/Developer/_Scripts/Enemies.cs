@@ -10,12 +10,16 @@ public class Enemies : MonoBehaviour
     public float Speed;
     public Animator m_Anim;
     private GameObject m_Player;
-    public bool Run;
+    private bool Run;
+    [SerializeField] private bool CanRun;
+    public bool CanBeSucked;
     private Platform m_Platform;
-
+    [SerializeField] private int m_Health = 1;
+    // public bool HasCollided;
     private void Awake()
     {
         Run = false;
+        // HasCollided = false;
     }
 
     // Start is called before the first frame update
@@ -33,12 +37,15 @@ public class Enemies : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            if(other.transform.GetComponent<Enemies>())
-                other.transform.GetComponent<Enemies>().Dead();
-            Dead();
-        }
+        // if (other.transform.CompareTag("Enemy") )
+        // {
+        //     HasCollided = true;
+        //     if(other.transform.GetComponent<Enemies>())
+        //         other.transform.GetComponent<Enemies>().Damage();
+        //     else if(other.transform.GetComponentInParent<Enemies>())
+        //         other.transform.GetComponentInParent<Enemies>().Damage();
+        //     Damage();
+        // }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +58,7 @@ public class Enemies : MonoBehaviour
 
     public void StartPlayer()
     {
+        if (!CanRun) return;
         GetComponent<Animator>().SetBool("Run",true);
         Run = true;
     }
@@ -69,12 +77,27 @@ public class Enemies : MonoBehaviour
         Run = false;
         m_Anim.SetBool("Run",false);
     }
-    
-    public void Dead()
+
+    public void Damage()
     {
+        m_Health--;
+        if(m_Health<=0)
+            Dead();
+    }
+    
+    
+    void Dead()
+    {
+        print("Damaged");
+        // foreach (Rigidbody rigidbody in GetComponentsInChildren<Rigidbody>())
+        // {
+        //     rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
+        // }
         GetComponent<RagdollController>().RagdollOn();
-        gameObject.layer= LayerMask.NameToLayer($"Default");
+        // gameObject.layer= LayerMask.NameToLayer($"Default");
         enabled = false;
+        // gameObject.SetActive(false);
+        // Destroy(gameObject);
     }
     
 }
