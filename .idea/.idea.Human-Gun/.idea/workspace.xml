@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e322677-d8fb-4fb1-916b-03692b0e8216" name="Changes" comment="" />
+    <list default="true" id="8e322677-d8fb-4fb1-916b-03692b0e8216" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Human-Gun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Human-Gun/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/HC_Chr_textire_1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/HC_Chr_textire_1Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/face.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/face.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Animators/Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Animators/Character.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scenes/Dev Art Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scenes/Dev Art Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/Enemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/Enemies.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/HumanGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/HumanGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/MyCrosshair.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/MyCrosshair.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -19,7 +36,13 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -44,6 +67,20 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8e322677-d8fb-4fb1-916b-03692b0e8216" name="Changes" comment="" />
+      <created>1642414319452</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642414319452</updated>
+      <workItem from="1642414341593" duration="5731000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">

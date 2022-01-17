@@ -15,6 +15,11 @@ public class Enemies : MonoBehaviour
     public bool CanBeSucked;
     private Platform m_Platform;
     [SerializeField] private int m_Health = 1;
+    [SerializeField] private SkinnedMeshRenderer[] meshes;
+    [SerializeField] private SkinnedMeshRenderer mesh;
+    [SerializeField] private Material deadMaterial;
+    Outline outline;
+    
     // public bool HasCollided;
     private void Awake()
     {
@@ -25,6 +30,8 @@ public class Enemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+        outline = GetComponent<Outline>();
         // Run = false;
         Self = transform;
         m_RagdollController = GetComponent<RagdollController>();
@@ -89,6 +96,7 @@ public class Enemies : MonoBehaviour
     void Dead()
     {
         print("Damaged");
+        TurnOutline(false);
         // foreach (Rigidbody rigidbody in GetComponentsInChildren<Rigidbody>())
         // {
         //     rigidbody.gameObject.layer= LayerMask.NameToLayer($"Dead");
@@ -96,8 +104,28 @@ public class Enemies : MonoBehaviour
         GetComponent<RagdollController>().RagdollOn();
         // gameObject.layer= LayerMask.NameToLayer($"Default");
         enabled = false;
+        SetColourToGrey();
         // gameObject.SetActive(false);
         // Destroy(gameObject);
     }
-    
+
+    void SetColourToGrey()
+    {
+        // for (int i = 0; i < meshes.Length; i++)
+        // {
+        //     for (int j = 0; j < meshes[i].materials.Length; j++)
+        //     {
+        //         meshes[i].materials[j] = deadMaterial;
+        //     }
+        // }
+
+        print("a,djhakjh");
+        mesh.materials[0] = deadMaterial;
+        mesh.materials[1] = deadMaterial;
+    }
+
+    public void TurnOutline(bool state)
+    {
+        outline.enabled = state;
+    }
 }

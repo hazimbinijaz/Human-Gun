@@ -20,10 +20,10 @@ public class MyCrosshair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateDimension();
         IsShootable = true;
         m_Gun.Crosshair = this;
         Swaying = false;
+        UpdateDimension();
     }
 
     // Update is called once per frame
