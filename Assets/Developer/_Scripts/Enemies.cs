@@ -118,10 +118,16 @@ public class Enemies : MonoBehaviour
         //         meshes[i].materials[j] = deadMaterial;
         //     }
         // }
+        Material [] mats = mesh.materials;
+        for (int i = 0; i < mats.Length; i++)
+        {
+            mats[i] = deadMaterial;
+        }
 
-        print("a,djhakjh");
-        mesh.materials[0] = deadMaterial;
-        mesh.materials[1] = deadMaterial;
+        mesh.materials = mats;
+        // print("a,djhakjh");
+        // mesh.materials[0] = deadMaterial;
+        // mesh.materials[1] = deadMaterial;
     }
 
     public void TurnOutline(bool state)
