@@ -27,6 +27,7 @@ public class PlatformManager : MonoBehaviour
     {
         
     }
+
     [Button("Next Platform")]
     public void NextPlatform()
     {
@@ -39,12 +40,16 @@ public class PlatformManager : MonoBehaviour
         else
         {
             Platforms[CurrentPlatform].gameObject.SetActive(true);
-            m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, 1f);
-            m_Player.transform.DORotateQuaternion(Platforms[CurrentPlatform ].PlatformViewpoint.transform.rotation, 3f).OnComplete(()=>
-            {
-                m_Crosshair.IsShootable = true;
-                Platforms[CurrentPlatform].EnableAllEnemies();
-            });
+            float animDuration = 1;
+            m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, animDuration)
+                .SetEase(Ease.Linear);
+            m_Player.transform
+                .DORotateQuaternion(Platforms[CurrentPlatform].PlatformViewpoint.transform.rotation, animDuration)
+                .SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    m_Crosshair.IsShootable = true;
+                    Platforms[CurrentPlatform].EnableAllEnemies();
+                });
         }
     }
 

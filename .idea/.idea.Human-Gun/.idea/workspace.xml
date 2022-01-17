@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e322677-d8fb-4fb1-916b-03692b0e8216" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/Enemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/Enemies.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/PlatformManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/PlatformManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642414319452</updated>
-      <workItem from="1642414341593" duration="6424000" />
+      <workItem from="1642414341593" duration="7116000" />
     </task>
     <servers />
   </component>
