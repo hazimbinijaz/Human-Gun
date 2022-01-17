@@ -11,9 +11,11 @@ public class HumanGun : MonoBehaviour
     [SerializeField] private Transform m_Muzzle;
     private GameObject m_LoadedHuman;
     [ShowInInspector] public bool m_IsHumanLoaded { get; private set; }
-    [SerializeField] private GameObject m_HumanInMagazine;
+    [SerializeField] private GameObject m_HumanInMagazine, suckParticle;
     [SerializeField] private float ShootForce;
+
     public MyCrosshair Crosshair;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +30,12 @@ public class HumanGun : MonoBehaviour
         else
             LoadInGun(m_enemy);
     }
-    
+
     void LoadInGun(GameObject m_OtherEnemy)
     {
-        if(!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked) return;
+        if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked) return;
         Enemies enemy = m_OtherEnemy.GetComponent<Enemies>();
-        
+        suckParticle.SetActive(true);
         enemy.TurnOutline(true);
         Crosshair.IsShootable = false;
         // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
@@ -42,26 +44,30 @@ public class HumanGun : MonoBehaviour
         m_IsHumanLoaded = !m_IsHumanLoaded;
         m_LoadedHuman = m_OtherEnemy;
         m_OtherEnemy.transform.DOLocalRotate(new Vector3(-20f, 0f, 0f), 0.1f);
-        m_OtherEnemy.GetComponent<Animator>().SetBool("Suck In",true);
+        m_OtherEnemy.GetComponent<Animator>().SetBool("Suck In", true);
         // m_OtherEnemy.transform.DOScale(new Vector3(0,0,0), 0.8f);
 
         m_OtherEnemy.transform.DOScale(.2f, .5f).SetEase(Ease.Linear);
-        m_OtherEnemy.transform.DOMove(m_Muzzle.position + new Vector3(0f,0f,0f), .5f).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            m_LoadedHuman.SetActive(false);
-            foreach (Rigidbody rigidbody in m_OtherEnemy.GetComponentsInChildren<Rigidbody>())
+        m_OtherEnemy.transform.DOMove(m_Muzzle.position + new Vector3(0f, 0f, 0f), .5f).SetEase(Ease.Linear).OnComplete(
+            () =>
             {
-                rigidbody.gameObject.layer= LayerMask.NameToLayer($"EnemySucked");
-            }
-            m_HumanInMagazine.SetActive(true);
-            m_HumanInMagazine.transform.DOScale(new Vector3(0.2f,0.2f,0.2f), 0.2f).SetEase(Ease.OutBounce);
-            m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
-            Crosshair.IsShootable = true;
-        });;
-        
+                m_LoadedHuman.SetActive(false);
+                foreach (Rigidbody rigidbody in m_OtherEnemy.GetComponentsInChildren<Rigidbody>())
+                {
+                    rigidbody.gameObject.layer = LayerMask.NameToLayer($"EnemySucked");
+                }
+
+                m_HumanInMagazine.SetActive(true);
+                m_HumanInMagazine.transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.2f).SetEase(Ease.OutBounce);
+                m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
+                Crosshair.IsShootable = true;
+                suckParticle.SetActive(false);
+            });
+        ;
+
     }
 
-     void ShootItOut(GameObject m_OtherEnemy)
+    void ShootItOut(GameObject m_OtherEnemy)
     {
         // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
         m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
@@ -71,7 +77,8 @@ public class HumanGun : MonoBehaviour
         m_LoadedHuman.SetActive(true);
         m_LoadedHuman.transform.DOScale(1f, .5f);
 
-        m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce).OnComplete(()=>m_HumanInMagazine.SetActive(false));
+        m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce)
+            .OnComplete(() => m_HumanInMagazine.SetActive(false));
         Vector3 direction = m_OtherEnemy.transform.position - transform.position;
         Hip.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * ShootForce, transform.position);
         Hip.transform.DOMove(m_OtherEnemy.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
@@ -81,7 +88,7 @@ public class HumanGun : MonoBehaviour
             m_LoadedHuman = null;
             m_PlatformManager.OnEnemyDeath(2);
         });
-        
+
     }
-    
+
 }
