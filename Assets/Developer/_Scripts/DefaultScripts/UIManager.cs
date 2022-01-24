@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject failUI;
     public GameObject completeUI;
     public TMP_Text levelText;
+    public Image ProgressBarFill;
     // public PlayerMovement PlayerController;
     public InputControls PlayerController;
 
@@ -26,7 +28,8 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
         failUI.SetActive(false);
         completeUI.SetActive(false);
-        // UpdateLevelText();
+        levelText.text = "Level " + PlayerPrefs.GetInt("Level", 1);
+        ProgressBarFill.fillAmount = PlayerPrefs.GetFloat("Fill",0);
     }
 
     public void OnClickStartGame()
@@ -41,10 +44,10 @@ public class UIManager : MonoBehaviour
 
     public void ShowLevelCompleteUI()
     {
+        
         inGameUI.SetActive(false);
         completeUI.SetActive(true);
-        TheGameManager.Instance._level++;
-        PlayerPrefs.SetInt("Level",TheGameManager.Instance._level);
+        
     }
     
     

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.55669105, g: 0.58865297, b: 0.56906146, a: 1}
+  m_IndirectSpecularColor: {r: 0.55669016, g: 0.58865315, b: 0.5690618, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9667,7 +9667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformViewpoint: {fileID: 1616776320}
-  CurrentNoOfEnemies: 8
   AllEnemies:
   - {fileID: 844191627}
   - {fileID: 855259635}
@@ -9677,6 +9676,7 @@ MonoBehaviour:
   - {fileID: 1289470094}
   - {fileID: 409944030}
   - {fileID: 1214776857}
+  CurrentNoOfEnemies: 8
 --- !u!4 &940170667
 Transform:
   m_ObjectHideFlags: 0
@@ -9872,7 +9872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformViewpoint: {fileID: 250094080}
-  CurrentNoOfEnemies: 8
   AllEnemies:
   - {fileID: 1802602752}
   - {fileID: 780118233}
@@ -9882,6 +9881,7 @@ MonoBehaviour:
   - {fileID: 430042614}
   - {fileID: 807657025}
   - {fileID: 84175243}
+  CurrentNoOfEnemies: 8
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -10506,7 +10506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformViewpoint: {fileID: 212822438}
-  CurrentNoOfEnemies: 8
   AllEnemies:
   - {fileID: 504756121}
   - {fileID: 1851096926}
@@ -10516,6 +10515,7 @@ MonoBehaviour:
   - {fileID: 762763463}
   - {fileID: 1477087243}
   - {fileID: 1103427171}
+  CurrentNoOfEnemies: 8
 --- !u!4 &1024979301
 Transform:
   m_ObjectHideFlags: 0
@@ -13082,7 +13082,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformViewpoint: {fileID: 975698389}
-  CurrentNoOfEnemies: 8
   AllEnemies:
   - {fileID: 1156181820}
   - {fileID: 1135578665}
@@ -13092,6 +13091,7 @@ MonoBehaviour:
   - {fileID: 1428602213}
   - {fileID: 1554572302}
   - {fileID: 520642835}
+  CurrentNoOfEnemies: 8
 --- !u!4 &1469075823
 Transform:
   m_ObjectHideFlags: 0
@@ -15000,6 +15000,7 @@ MonoBehaviour:
   m_InputControls: {fileID: 2048698074}
   SmoothSpeed: 1
   IsShootable: 0
+  m_Camera: {fileID: 963194227}
   ToSway: {fileID: 512892056}
   RaycastLayer:
     serializedVersion: 2
@@ -16109,8 +16110,9 @@ MonoBehaviour:
   m_PlatformManager: {fileID: 559904433}
   m_Muzzle: {fileID: 810695833}
   m_HumanInMagazine: {fileID: 410799345403558195}
+  suckParticle: {fileID: 0}
   ShootForce: 1000
-  Crosshair: {fileID: 0}
+  Crosshair: {fileID: 1573417234}
 --- !u!114 &1802602752 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 279792970, guid: 56252e0a3c4f28e4bbc17be3ff30e9b4, type: 3}

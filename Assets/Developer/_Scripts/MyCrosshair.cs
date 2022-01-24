@@ -13,32 +13,32 @@ public class MyCrosshair : MonoBehaviour
     public float SmoothSpeed;
     public bool IsShootable;
     [SerializeField] Camera m_Camera;
-    [SerializeField] private Transform ToSway;
     [SerializeField] private LayerMask RaycastLayer;
-
-    private bool Swaying;
     // Start is called before the first frame update
     void Start()
     {
         IsShootable = true;
         m_Gun.Crosshair = this;
-        Swaying = false;
         UpdateDimension();
     }
 
     // Update is called once per frame
     void Update()   
     {
-        //Getting Input
-        GetInputs();
-        FinalPos = new Vector3 (MoveHorizontal, MoveVertical, 0.0f) + transform.position;
-        Clamping();
-        
-        //Assign new position
-        transform.position = FinalPos;
-        //Shooting
-        if(IsShootable)
+        if (IsShootable)
+        {
+            //Getting Input
+            GetInputs();
+            FinalPos = new Vector3 (MoveHorizontal, MoveVertical, 0.0f) + transform.position;
+            Clamping();
+            
+            //Assign new position
+            transform.position = FinalPos;
+            
+            //Shooting
             Shoot();
+            
+        }
 
     }
 
@@ -50,39 +50,10 @@ public class MyCrosshair : MonoBehaviour
     
     void GetInputs()
     {
-        // MoveHorizontal = Input.mousePosition.x;
-        // MoveVertical = Input.mousePosition.y;
-        
         MoveHorizontal = TCKInput.GetAxis( $"Movepad", TCKAxisType.Horizontal ) * 10f;
-        MoveVertical   = TCKInput.GetAxis( $"Movepad", TCKAxisType.Vertical   ) * 10f;
-        // if (MoveHorizontal != 0 || MoveVertical != 0)
-        // {
-        //     if (Swaying)
-        //     {
-        //         print("Sway ended");
-        //         Swaying = false;
-        //         StopCoroutine("Sway");
-        //         ToSway.DOKill();
-        //         ToSway.transform.eulerAngles=Vector3.zero;
-        //     }
-        // }
-        // else
-        // {
-        //     if (!Swaying)
-        //     {
-        //         print("Sway started");
-        //         Swaying = true;
-        //         StartCoroutine("Sway");
-        //     }
-        // }
+        MoveVertical = TCKInput.GetAxis($"Movepad", TCKAxisType.Vertical) * 10f;
     }
-
-    private IEnumerator Sway()
-    {
-        yield return new WaitForSeconds(3f);
-        ToSway.DORotate(new Vector3(0, -10, 0), 1.5f).SetEase(Ease.InOutFlash).SetLoops(-1,LoopType.Yoyo);
-        yield return null;
-    }
+    
     
     void Shoot()
     {

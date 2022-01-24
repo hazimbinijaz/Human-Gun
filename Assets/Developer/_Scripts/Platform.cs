@@ -8,7 +8,7 @@ public class Platform : MonoBehaviour
     public Transform PlatformViewpoint;
     public List<Enemies> AllEnemies;
     public int CurrentNoOfEnemies;
-
+    public bool IsBonusLevel;
     private void Start()
     {
         CurrentNoOfEnemies = AllEnemies.Count;

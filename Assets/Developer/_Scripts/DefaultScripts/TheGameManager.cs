@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class TheGameManager : MonoBehaviour
 {
     public static TheGameManager Instance=null;
     public int _level;
+    [SerializeField] private Text LevelText;
     public GameObject Player;
     public event Action OnGameFail,OnGameWin;
     private Camera m_Camera;
@@ -22,7 +24,8 @@ public class TheGameManager : MonoBehaviour
         m_Camera=Camera.main;
     }
 
- 
+    
+
     public void LevelFail()
     {
         UIManager.Instance.ShowLevelFailUI();
@@ -30,11 +33,12 @@ public class TheGameManager : MonoBehaviour
         m_Camera.DOShakeRotation(1f);
     }
 
-    
-    
+
     public void LevelWin()
     {
         UIManager.Instance.ShowLevelCompleteUI();
+        _level++;
+        PlayerPrefs.SetInt("Level",TheGameManager.Instance._level);
     }
     public void RestartLevel()
     {

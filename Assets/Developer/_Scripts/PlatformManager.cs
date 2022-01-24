@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class PlatformManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlatformManager : MonoBehaviour
     private GameObject m_Player;
     private int CurrentPlatform;
     private HumanGun m_PlayerGun;
-
+    private int NoOfPlatforms;
     [SerializeField] private MyCrosshair m_Crosshair;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlatformManager : MonoBehaviour
         m_Player = TheGameManager.Instance.Player;
         m_PlayerGun = m_Player.GetComponentInChildren<HumanGun>();
         Platforms[CurrentPlatform].EnableAllEnemies();
+        NoOfPlatforms = Platforms.Count;
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class PlatformManager : MonoBehaviour
     [Button("Next Platform")]
     public void NextPlatform()
     {
+        
         m_Crosshair.IsShootable = false;
         CurrentPlatform++;
         if (CurrentPlatform > Platforms.Count - 1)
@@ -41,6 +44,7 @@ public class PlatformManager : MonoBehaviour
         {
             Platforms[CurrentPlatform].gameObject.SetActive(true);
             float animDuration = 1;
+            m_PlayerGun.IsBonusLevel = Platforms[CurrentPlatform].IsBonusLevel;
             m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, animDuration)
                 .SetEase(Ease.Linear);
             m_Player.transform
@@ -57,6 +61,13 @@ public class PlatformManager : MonoBehaviour
     {
         Platforms[CurrentPlatform].CurrentNoOfEnemies -= NoOfDeaths;
         if (Platforms[CurrentPlatform].CurrentNoOfEnemies <= 0)
+        {
+            if (CurrentPlatform + 1 > Platforms.Count - 1)
+            {
+                UIManager.Instance.ProgressBarFill.fillAmount += (1f / SceneManager.sceneCountInBuildSettings);
+                PlayerPrefs.SetFloat("Fill",UIManager.Instance.ProgressBarFill.fillAmount);
+            }
             Invoke(nameof(NextPlatform), 2f);
+        }
     }
 }
