@@ -9,6 +9,7 @@ public class Platform : MonoBehaviour
     public List<Enemies> AllEnemies;
     public int CurrentNoOfEnemies;
     public bool IsBonusLevel;
+    public int MagLimit;
     private void Start()
     {
         CurrentNoOfEnemies = AllEnemies.Count;

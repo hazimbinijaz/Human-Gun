@@ -11,7 +11,7 @@ public class HumanGun : MonoBehaviour
     [SerializeField] private PlatformManager m_PlatformManager;
     [SerializeField] private Transform m_Muzzle;
     private GameObject m_LoadedHuman;
-    [SerializeField] private int MagLimit;
+    public int MagLimit;
     [ShowInInspector] public bool m_IsHumanLoaded { get; private set; }
     [ShowInInspector] public bool m_IsMagFull { get; private set; }
     [SerializeField] private GameObject m_HumanInMagazine, suckParticle;
@@ -88,6 +88,7 @@ public class HumanGun : MonoBehaviour
     void ShootItOut(GameObject m_OtherEnemy)
     {
         // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
+        Crosshair.IsShootable = false;
         m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
         Transform Hip = m_LoadedHuman.transform.GetChild(0);
         // Hip.DOScale(Vector3.one, 0.8f);
@@ -104,7 +105,8 @@ public class HumanGun : MonoBehaviour
             m_OtherEnemy.GetComponent<Enemies>().Damage();
             m_LoadedHuman.GetComponent<Enemies>().Damage();
             m_LoadedHuman = null;
-            m_PlatformManager.OnEnemyDeath(2);
+            Crosshair.IsShootable = true;
+            // m_PlatformManager.OnEnemyDeath(2);
         });
 
     }
@@ -146,12 +148,12 @@ public class HumanGun : MonoBehaviour
    
     void ShootItOutBonus(GameObject m_OtherEnemy)
     {
-        // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
-        if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked) return;
+        if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked || !Crosshair.IsShootable) return;
+        Crosshair.IsShootable = false;
         m_LoadedHuman = HumansInMagazine.Pop();
         if (HumansInMagazine.Count == 0)
             m_IsMagFull = false;
-        m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
+        // m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
         Transform Hip = m_LoadedHuman.transform.GetChild(0);
         // Hip.DOScale(Vector3.one, 0.8f);
         m_IsHumanLoaded = !m_IsHumanLoaded;
@@ -167,7 +169,8 @@ public class HumanGun : MonoBehaviour
             m_OtherEnemy.GetComponent<Enemies>().Damage();
             m_LoadedHuman.GetComponent<Enemies>().Damage();
             m_LoadedHuman = null;
-            m_PlatformManager.OnEnemyDeath(2);
+            // m_PlatformManager.OnEnemyDeath(2);
+            Crosshair.IsShootable = true;
         });
 
     }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TheGameManager : MonoBehaviour
 {
     public static TheGameManager Instance=null;
+    public PlatformManager ThePlatformManager; 
     public int _level;
     [SerializeField] private Text LevelText;
     public GameObject Player;

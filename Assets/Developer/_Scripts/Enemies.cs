@@ -19,6 +19,7 @@ public class Enemies : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer mesh;
     [SerializeField] private Material deadMaterial;
     Outline outline;
+    private PlatformManager m_PlatformManager;
     private void Awake()
     {
         Run = false;
@@ -36,6 +37,7 @@ public class Enemies : MonoBehaviour
         m_Player = TheGameManager.Instance.Player;
         m_Platform = GetComponentInParent<Platform>();
         TheGameManager.Instance.OnGameFail += StopEnemy;
+        m_PlatformManager = TheGameManager.Instance.ThePlatformManager;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,6 +81,7 @@ public class Enemies : MonoBehaviour
     void Dead()
     {
         TurnOutline(false);
+        m_PlatformManager.OnEnemyDeath(1);
         GetComponent<RagdollController>().RagdollOn();
         enabled = false;
         SetColourToGrey();

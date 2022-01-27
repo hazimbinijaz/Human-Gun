@@ -45,6 +45,7 @@ public class PlatformManager : MonoBehaviour
             Platforms[CurrentPlatform].gameObject.SetActive(true);
             float animDuration = 1;
             m_PlayerGun.IsBonusLevel = Platforms[CurrentPlatform].IsBonusLevel;
+            m_PlayerGun.MagLimit=Platforms[CurrentPlatform].MagLimit;
             m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, animDuration)
                 .SetEase(Ease.Linear);
             m_Player.transform
