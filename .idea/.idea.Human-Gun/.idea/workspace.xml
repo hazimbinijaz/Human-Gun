@@ -6,12 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="8e322677-d8fb-4fb1-916b-03692b0e8216" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Human-Gun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Human-Gun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/HC_Chr_textire_1Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Artist/Artwork/Materials/Enemies/HC_Chr_textire_1Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Animators/Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Animators/Character.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scenes/Dev Art Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scenes/Dev Art Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/BlitzGun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/BlitzGun.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/BlitzGun_Material_002.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/BlitzGun_Material_002.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_24.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_25.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/TOBJ_4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert3.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert4.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert4.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert5.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert5.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert6.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Artist/_New Gun/pasted__lambert6.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Prefabs/CoreGameplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Prefabs/CoreGameplay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scenes/Level 9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scenes/Level 9.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Developer/_Scripts/HumanGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developer/_Scripts/HumanGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +43,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Developer/_Scripts/CameraRotation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Developer/_Scripts/CameraRotation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1642414319452</updated>
       <workItem from="1642414341593" duration="425000" />
+      <workItem from="1643354477344" duration="1183000" />
     </task>
     <servers />
   </component>

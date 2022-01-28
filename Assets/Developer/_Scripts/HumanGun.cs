@@ -18,6 +18,7 @@ public class HumanGun : MonoBehaviour
     [SerializeField] private float ShootForce;
     public bool IsBonusLevel;
     public MyCrosshair Crosshair;
+    public Animator gunAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +81,7 @@ public class HumanGun : MonoBehaviour
                 m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
                 Crosshair.IsShootable = true;
                 suckParticle.SetActive(false);
+                gunAnim.SetTrigger("Suck");
             });
         ;
 
@@ -93,14 +95,18 @@ public class HumanGun : MonoBehaviour
         Transform Hip = m_LoadedHuman.transform.GetChild(0);
         // Hip.DOScale(Vector3.one, 0.8f);
         m_IsHumanLoaded = !m_IsHumanLoaded;
-        m_LoadedHuman.SetActive(true);
+                // m_OtherEnemy.transform.position = m_Muzzle.position;
+
         m_LoadedHuman.transform.DOScale(1f, .5f);
 
         m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce)
             .OnComplete(() => m_HumanInMagazine.SetActive(false));
         Vector3 direction = m_OtherEnemy.transform.position - transform.position;
         Hip.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * ShootForce, transform.position);
-        Hip.transform.DOMove(m_OtherEnemy.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        gunAnim.SetTrigger("Shoot");
+        Hip.transform.DOMove(m_OtherEnemy.transform.position, 0.5f).SetEase(Ease.Linear).SetDelay(.5f)
+            .OnStart(()=>m_LoadedHuman.SetActive(true))
+            .OnComplete(() =>
         {
             m_OtherEnemy.GetComponent<Enemies>().Damage();
             m_LoadedHuman.GetComponent<Enemies>().Damage();
