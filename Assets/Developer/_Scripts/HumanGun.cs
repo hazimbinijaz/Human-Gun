@@ -148,7 +148,12 @@ public class HumanGun : MonoBehaviour
    
     void ShootItOutBonus(GameObject m_OtherEnemy)
     {
-        if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked || !Crosshair.IsShootable) return;
+        if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked)
+        {
+            
+            if( !m_OtherEnemy.GetComponent<Enemies>().IsBoss)
+                return;
+        }
         Crosshair.IsShootable = false;
         m_LoadedHuman = HumansInMagazine.Pop();
         if (HumansInMagazine.Count == 0)

@@ -12,7 +12,7 @@ public class Enemies : MonoBehaviour
     private GameObject m_Player;
     private bool Run;
     [SerializeField] private bool CanRun;
-    public bool CanBeSucked;
+    public bool CanBeSucked,IsBoss;
     private Platform m_Platform;
     [SerializeField] private int m_Health = 1;
     [SerializeField] private SkinnedMeshRenderer[] meshes;
