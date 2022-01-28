@@ -10085,7 +10085,7 @@ PrefabInstance:
     - target: {fileID: 4626450894653845894, guid: 614740fd4417e43e3a7116380a85e9cc, type: 3}
       propertyPath: suckParticle
       value: 
-      objectReference: {fileID: 5351966964339824149}
+      objectReference: {fileID: 9210827571091237485}
     - target: {fileID: 4626450894653845894, guid: 614740fd4417e43e3a7116380a85e9cc, type: 3}
       propertyPath: m_PlatformManager
       value: 
@@ -10205,3 +10205,108 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &8996037471532001088
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2559865568236952764}
+    m_Modifications:
+    - target: {fileID: 130256629405016537, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 219329158453447981, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_Name
+      value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 219329158453447981, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70611125
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70611125
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.037509665
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.037509665
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 225029891114102085, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+--- !u!1 &9210827571091237485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 219329158453447981, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+  m_PrefabInstance: {fileID: 8996037471532001088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9013563073584678553 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 130256629405016537, guid: b93de13c7a0334837b6ca92a90eca8d3, type: 3}
+  m_PrefabInstance: {fileID: 8996037471532001088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7843522526725159929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210827571091237485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70620cec1fddf4a99bcfe0532a6bec7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9013563073584678553}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnDisableEvents:
+    m_PersistentCalls:
+      m_Calls: []
