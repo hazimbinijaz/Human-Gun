@@ -33,29 +33,27 @@ public class PlatformManager : MonoBehaviour
     [Button("Next Platform")]
     public void NextPlatform()
     {
-        
         m_Crosshair.IsShootable = false;
         CurrentPlatform++;
-        if (Platforms[CurrentPlatform].CurrentNoOfEnemies<=0)
-        {
-            TheGameManager.Instance.LevelWin();
-        }
-        else
-        {
-            Platforms[CurrentPlatform].gameObject.SetActive(true);
-            float animDuration = 1;
-            m_PlayerGun.IsBonusLevel = Platforms[CurrentPlatform].IsBonusLevel;
-            m_PlayerGun.MagLimit=Platforms[CurrentPlatform].MagLimit;
-            m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, animDuration)
-                .SetEase(Ease.Linear);
-            m_Player.transform
-                .DORotateQuaternion(Platforms[CurrentPlatform].PlatformViewpoint.transform.rotation, animDuration)
-                .SetEase(Ease.Linear).OnComplete(() =>
+        Platforms[CurrentPlatform].gameObject.SetActive(true);
+        float animDuration = 1;
+        m_PlayerGun.IsBonusLevel = Platforms[CurrentPlatform].IsBonusLevel;
+        m_PlayerGun.MagLimit=Platforms[CurrentPlatform].MagLimit;
+        m_Player.transform.DOMove(Platforms[CurrentPlatform].PlatformViewpoint.transform.position, animDuration)
+            .SetEase(Ease.Linear);
+        m_Player.transform
+            .DORotateQuaternion(Platforms[CurrentPlatform].PlatformViewpoint.transform.rotation, animDuration)
+            .SetEase(Ease.Linear).OnComplete(() =>
+            {
+                m_Crosshair.IsShootable = true;
+                Platforms[CurrentPlatform].EnableAllEnemies();
+                if (Platforms[CurrentPlatform].CurrentNoOfEnemies<=0)
                 {
-                    m_Crosshair.IsShootable = true;
-                    Platforms[CurrentPlatform].EnableAllEnemies();
-                });
-        }
+                    Platforms[CurrentPlatform].Confetti1.Play();
+                    Platforms[CurrentPlatform].Confetti2.Play();
+                    TheGameManager.Instance.LevelWin();
+                }
+            });
     }
 
     public void OnEnemyDeath(int NoOfDeaths)
