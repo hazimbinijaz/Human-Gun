@@ -11658,7 +11658,6 @@ MonoBehaviour:
   IsBonusLevel: 0
   Crosshair: {fileID: 0}
   gunAnim: {fileID: 0}
-  m_Camera: {fileID: 0}
 --- !u!1 &1752012358
 GameObject:
   m_ObjectHideFlags: 0

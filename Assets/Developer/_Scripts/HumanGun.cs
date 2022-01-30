@@ -19,6 +19,7 @@ public class HumanGun : MonoBehaviour
     public bool IsBonusLevel;
     public MyCrosshair Crosshair;
     public Animator gunAnim;
+    [SerializeField] private Camera m_Camera;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +32,13 @@ public class HumanGun : MonoBehaviour
 
     public void GunAction(GameObject m_enemy)
     {
+        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
+        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         if (IsBonusLevel)
         {
             if (m_IsMagFull)
                 ShootItOutBonus(m_enemy);
-            else
+            else 
                 LoadInGunBonus(m_enemy);
         }
         else
@@ -93,12 +96,9 @@ public class HumanGun : MonoBehaviour
         Crosshair.IsShootable = false;
         m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
         Transform Hip = m_LoadedHuman.transform.GetChild(0);
-        // Hip.DOScale(Vector3.one, 0.8f);
         m_IsHumanLoaded = !m_IsHumanLoaded;
-                // m_OtherEnemy.transform.position = m_Muzzle.position;
-
-        m_LoadedHuman.transform.DOScale(1f, .5f);
-
+        m_LoadedHuman.transform.position -= new Vector3(0, 1f, 0);
+        m_LoadedHuman.transform.DOScale(1f, 1.5f);
         m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce)
             .OnComplete(() => m_HumanInMagazine.SetActive(false));
         Vector3 direction = m_OtherEnemy.transform.position - transform.position;
@@ -112,7 +112,6 @@ public class HumanGun : MonoBehaviour
             m_LoadedHuman.GetComponent<Enemies>().Damage();
             m_LoadedHuman = null;
             Crosshair.IsShootable = true;
-            // m_PlatformManager.OnEnemyDeath(2);
         });
 
     }

@@ -14,6 +14,8 @@ public class MyCrosshair : MonoBehaviour
     public bool IsShootable;
     [SerializeField] Camera m_Camera;
     [SerializeField] private LayerMask RaycastLayer;
+
+    public int ttemp;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class MyCrosshair : MonoBehaviour
         {
             // Vector3 dir =new Vector3(MoveHorizontal,MoveVertical,0) - m_Gun.transform.position;
             Vector3 dir =hit.point - m_Gun.transform.position;
-            m_Gun.transform.DORotateQuaternion(Quaternion.LookRotation(dir),0.2f);
+            m_Gun.transform.DORotateQuaternion(Quaternion.LookRotation(new Vector3(dir.x,dir.y,dir.z)),0.2f);
             if (hit.transform.GetComponent<Enemies>())
             {
                 m_Gun.GunAction(hit.transform.gameObject);
@@ -79,18 +81,5 @@ public class MyCrosshair : MonoBehaviour
         MaxX = Screen.width ;
         MaxY = Screen.height;
     }//UpdateDimension end
-
-    public void ShowCursor()
-    {
-        Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
-        //GetComponent<Image>().enabled = false;
-    }//ShowCursor end
-
-    public void HideCursor()
-    {
-        Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //GetComponent<Image>().enabled = true;
-    }//HideCursor end
+    
 }

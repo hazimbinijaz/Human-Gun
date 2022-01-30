@@ -36,7 +36,7 @@ public class PlatformManager : MonoBehaviour
         
         m_Crosshair.IsShootable = false;
         CurrentPlatform++;
-        if (CurrentPlatform > Platforms.Count - 1)
+        if (Platforms[CurrentPlatform].CurrentNoOfEnemies<=0)
         {
             TheGameManager.Instance.LevelWin();
         }
