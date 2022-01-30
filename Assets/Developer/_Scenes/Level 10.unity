@@ -10812,6 +10812,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoreGameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 1104196125317388491, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422307871762012769, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488132699574811158, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920477755791328757, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231505040258495653, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288936094522446128, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7345538458814396573, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -10856,6 +10880,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7529025433645872109, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669123778390417614, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8338833654507283937, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: Platforms.Array.size
       value: 5
@@ -10880,6 +10912,14 @@ PrefabInstance:
       propertyPath: Platforms.Array.data[4]
       value: 
       objectReference: {fileID: 722704522}
+    - target: {fileID: 8400217443153080647, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111418459116212016, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
 --- !u!1001 &2125079906

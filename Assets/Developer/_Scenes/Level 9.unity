@@ -5326,6 +5326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoreGameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 1104196125317388491, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7345538458814396573, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5370,6 +5374,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7529025433645872109, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669123778390417614, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8338833654507283937, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: Platforms.Array.size
       value: 3
@@ -5386,6 +5398,10 @@ PrefabInstance:
       propertyPath: Platforms.Array.data[2]
       value: 
       objectReference: {fileID: 69490750}
+    - target: {fileID: 9111418459116212016, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
 --- !u!1001 &1685740613
