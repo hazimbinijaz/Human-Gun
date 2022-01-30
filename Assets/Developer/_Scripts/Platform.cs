@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour
     public int CurrentNoOfEnemies;
     public bool IsBonusLevel;
     public int MagLimit;
-    public ParticleSystem Confetti1, Confetti2;
+    public List<ParticleSystem> Confettis;
     private void Start()
     {
         CurrentNoOfEnemies = AllEnemies.Count;

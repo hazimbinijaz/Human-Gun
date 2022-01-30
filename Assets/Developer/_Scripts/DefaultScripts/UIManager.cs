@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public GameObject completeUI;
     public TMP_Text levelText;
     public Image ProgressBarFill;
+
+    public GameObject OnBoarding;
     // public PlayerMovement PlayerController;
     public InputControls PlayerController;
 
@@ -30,6 +32,11 @@ public class UIManager : MonoBehaviour
         completeUI.SetActive(false);
         levelText.text = "Level " + PlayerPrefs.GetInt("Level", 1);
         ProgressBarFill.fillAmount = PlayerPrefs.GetFloat("Fill",0);
+        int OB = PlayerPrefs.GetInt("FirstTime",0);
+        if(OB==0)
+            OnBoarding.SetActive(true);
+        OB++;
+        PlayerPrefs.SetInt("FirstTime",OB);
     }
 
     public void OnClickStartGame()

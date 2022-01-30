@@ -49,8 +49,10 @@ public class PlatformManager : MonoBehaviour
                 Platforms[CurrentPlatform].EnableAllEnemies();
                 if (Platforms[CurrentPlatform].CurrentNoOfEnemies<=0)
                 {
-                    Platforms[CurrentPlatform].Confetti1.Play();
-                    Platforms[CurrentPlatform].Confetti2.Play();
+                    foreach (ParticleSystem PS in Platforms[CurrentPlatform].Confettis)
+                    {
+                        PS.Play();
+                    }
                     TheGameManager.Instance.LevelWin();
                 }
             });
