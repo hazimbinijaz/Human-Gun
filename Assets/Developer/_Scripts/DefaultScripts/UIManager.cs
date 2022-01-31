@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public Image ProgressBarFill;
 
     public GameObject OnBoarding;
+
+    [SerializeField] private Text[] barTexts, barTexts2;
+    
     // public PlayerMovement PlayerController;
     public InputControls PlayerController;
 
@@ -37,8 +40,18 @@ public class UIManager : MonoBehaviour
             OnBoarding.SetActive(true);
         OB++;
         PlayerPrefs.SetInt("FirstTime",OB);
+        SetBarTexts();
     }
 
+    void SetBarTexts()
+    {
+        float div = PlayerPrefs.GetInt("Level", 1) / 4;
+        for (int i = 0; i < barTexts.Length; i++)
+        {
+            barTexts[i].text = ((div * 4) + (i + 1)).ToString();
+            barTexts2[i].text = ((div * 4) + (i + 1)).ToString();
+        }
+    }
     public void OnClickStartGame()
     {
         // Elephant.LevelStarted(TheGameManager.Instance._level);
