@@ -32,8 +32,6 @@ public class HumanGun : MonoBehaviour
 
     public void GunAction(GameObject m_enemy)
     {
-        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
-        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         if (IsBonusLevel)
         {
             if (m_IsMagFull)
@@ -56,6 +54,8 @@ public class HumanGun : MonoBehaviour
     void LoadInGun(GameObject m_OtherEnemy)
     {
         if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked) return;
+        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
+        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         Enemies enemy = m_OtherEnemy.GetComponent<Enemies>();
         suckParticle.SetActive(true);
         enemy.TurnOutline(true);
@@ -93,6 +93,8 @@ public class HumanGun : MonoBehaviour
     void ShootItOut(GameObject m_OtherEnemy)
     {
         // m_OtherEnemy.GetComponent<RagdollController>().RagdollOn();
+        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
+        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         Crosshair.IsShootable = false;
         m_OtherEnemy.GetComponent<Enemies>().CanBeSucked = false;
         Transform Hip = m_LoadedHuman.transform.GetChild(0);
@@ -119,6 +121,8 @@ public class HumanGun : MonoBehaviour
     void LoadInGunBonus(GameObject m_OtherEnemy)
     {
         if (!m_OtherEnemy.GetComponent<Enemies>().CanBeSucked) return;
+        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
+        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         Enemies enemy = m_OtherEnemy.GetComponent<Enemies>();
         suckParticle.SetActive(true);
         enemy.TurnOutline(true);
@@ -159,6 +163,8 @@ public class HumanGun : MonoBehaviour
             if( !m_OtherEnemy.GetComponent<Enemies>().IsBoss)
                 return;
         }
+        AL_HapticFeedBack.Generate(HapticTypes.HeavyImpact);
+        m_Camera.DOShakePosition(0.25f,0.1f,30,1,false);
         Crosshair.IsShootable = false;
         m_LoadedHuman = HumansInMagazine.Pop();
         if (HumansInMagazine.Count == 0)
@@ -184,28 +190,5 @@ public class HumanGun : MonoBehaviour
         });
 
     }
-    
-    // void ShootItOutBonus(GameObject m_OtherEnemyBonus)
-    // {
-    //     if (!m_OtherEnemyBonus.GetComponent<Enemies>().CanBeSucked) return;
-    //     m_OtherEnemyBonus.GetComponent<Enemies>().CanBeSucked = false;
-    //     GameObject m_OtherEnemy = HumansInMagazine.Pop();
-    //     Transform Hip = m_LoadedHuman.transform.GetChild(0);
-    //     m_LoadedHuman.SetActive(true);
-    //     m_LoadedHuman.transform.DOScale(1f, .5f);
-    //     m_HumanInMagazine.transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.OutBounce)
-    //         .OnComplete(() => m_HumanInMagazine.SetActive(false));
-    //     Vector3 direction = m_OtherEnemy.transform.position - transform.position;
-    //     Hip.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * ShootForce, transform.position);
-    //     Hip.transform.DOMove(m_OtherEnemy.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
-    //     {
-    //         m_OtherEnemy.GetComponent<Enemies>().Damage();
-    //         m_LoadedHuman.GetComponent<Enemies>().Damage();
-    //         m_LoadedHuman = null;
-    //         m_PlatformManager.OnEnemyDeath(2);
-    //     });
-    //
-    // }
-  
     
 }

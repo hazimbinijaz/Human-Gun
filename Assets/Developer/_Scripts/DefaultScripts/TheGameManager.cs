@@ -38,6 +38,13 @@ public class TheGameManager : MonoBehaviour
     public void LevelWin()
     {
         UIManager.Instance.ShowLevelCompleteUI();
+        int level = PlayerPrefs.GetInt("Level", 1);
+        if (level % 12 == 0)
+        {
+            int Count = PlayerPrefs.GetInt("BarCount", 0);
+            Count += 12;
+            PlayerPrefs.SetInt("BarCount",Count);
+        }
         _level++;
         PlayerPrefs.SetInt("Level",_level);
     }
