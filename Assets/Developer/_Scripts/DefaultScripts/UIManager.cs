@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -13,7 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject completeUI;
     public TMP_Text levelText;
     public Image ProgressBarFill;
-
+    public List<Text> ProgressBarTexts,ProgressBarTextsLevelComplete;
     public GameObject OnBoarding;
     // public PlayerMovement PlayerController;
     public InputControls PlayerController;
@@ -30,14 +31,32 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
         failUI.SetActive(false);
         completeUI.SetActive(false);
-        levelText.text = "Level " + PlayerPrefs.GetInt("Level", 1);
+        int level = PlayerPrefs.GetInt("Level", 1);
+        levelText.text = "Level " + level;
+        SetBarCounts();
         ProgressBarFill.fillAmount = PlayerPrefs.GetFloat("Fill",0);
-        int OB = PlayerPrefs.GetInt("FirstTime",0);
-        if(OB==0)
+        int OnBoardingCheck = PlayerPrefs.GetInt("FirstTime",0);
+        if(OnBoardingCheck==0)
             OnBoarding.SetActive(true);
-        OB++;
-        PlayerPrefs.SetInt("FirstTime",OB);
+        OnBoardingCheck++;
+        PlayerPrefs.SetInt("FirstTime",OnBoardingCheck);
+        
     }
+
+    private void SetBarCounts()
+    {
+        int Count = PlayerPrefs.GetInt("BarCount", 0);
+        foreach (Text text in ProgressBarTexts)
+        {
+            text.text = (int.Parse(text.text) + Count).ToString();
+        }
+        foreach (Text text in ProgressBarTextsLevelComplete)
+        {
+            text.text = (int.Parse(text.text) + Count).ToString();
+        }
+
+    }
+    
 
     public void OnClickStartGame()
     {
