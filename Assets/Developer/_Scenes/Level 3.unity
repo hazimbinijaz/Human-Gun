@@ -4525,7 +4525,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4614112461089901594, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5351966964339824149, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856589934507552467, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -4619,7 +4627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111418459116212016, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
@@ -6583,8 +6591,7 @@ MonoBehaviour:
   CurrentNoOfEnemies: 8
   IsBonusLevel: 0
   MagLimit: 0
-  Confetti1: {fileID: 0}
-  Confetti2: {fileID: 0}
+  Confettis: []
 --- !u!4 &940170667
 Transform:
   m_ObjectHideFlags: 0
@@ -7147,8 +7154,7 @@ MonoBehaviour:
   CurrentNoOfEnemies: 8
   IsBonusLevel: 0
   MagLimit: 0
-  Confetti1: {fileID: 0}
-  Confetti2: {fileID: 0}
+  Confettis: []
 --- !u!1001 &965859837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7662,8 +7668,7 @@ MonoBehaviour:
   CurrentNoOfEnemies: 8
   IsBonusLevel: 1
   MagLimit: 3
-  Confetti1: {fileID: 0}
-  Confetti2: {fileID: 0}
+  Confettis: []
 --- !u!4 &1024979301
 Transform:
   m_ObjectHideFlags: 0
@@ -9459,8 +9464,7 @@ MonoBehaviour:
   CurrentNoOfEnemies: 8
   IsBonusLevel: 0
   MagLimit: 0
-  Confetti1: {fileID: 0}
-  Confetti2: {fileID: 0}
+  Confettis: []
 --- !u!4 &1469075823
 Transform:
   m_ObjectHideFlags: 0

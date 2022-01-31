@@ -3793,6 +3793,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1422307871762012769, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488132699574811158, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920477755791328757, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614112461089901594, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231505040258495653, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288936094522446128, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7345538458814396573, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3861,9 +3885,13 @@ PrefabInstance:
       propertyPath: Platforms.Array.data[2]
       value: 
       objectReference: {fileID: 1434487732}
+    - target: {fileID: 8400217443153080647, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9111418459116212016, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6443f87ff270a4242abdb510576adc5d, type: 3}
@@ -4129,8 +4157,7 @@ MonoBehaviour:
   CurrentNoOfEnemies: 8
   IsBonusLevel: 0
   MagLimit: 0
-  Confetti1: {fileID: 0}
-  Confetti2: {fileID: 0}
+  Confettis: []
 --- !u!4 &940170667
 Transform:
   m_ObjectHideFlags: 0

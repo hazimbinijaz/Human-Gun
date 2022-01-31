@@ -39,7 +39,7 @@ public class TheGameManager : MonoBehaviour
     {
         UIManager.Instance.ShowLevelCompleteUI();
         _level++;
-        PlayerPrefs.SetInt("Level",TheGameManager.Instance._level);
+        PlayerPrefs.SetInt("Level",_level);
     }
     public void RestartLevel()
     {
