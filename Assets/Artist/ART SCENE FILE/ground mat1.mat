@@ -80,12 +80,12 @@ Material:
     - _EmissionPower: 0
     - _FogEmissionFalloff: 0.01
     - _FogEmissionPower: 0.5
-    - _FogFalloff: 0.88
+    - _FogFalloff: 2.7
     - _FogMax: 5
-    - _FogMin: -1
+    - _FogMin: 1
     - _FogRelativeWorldOrLocal: 1
     - _FogWaveAmplitudeX: 1
-    - _FogWaveAmplitudeZ: 0.3
+    - _FogWaveAmplitudeZ: 1
     - _FogWaveFreqX: 0.3
     - _FogWaveFreqZ: 0.5
     - _FogWaveSpeedX: 5
@@ -94,7 +94,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _MetChannel: 4
-    - _Metallic: 0
+    - _Metallic: 0.62
     - _Mode: 0
     - _NormalAmount: 0.75
     - _OVERRIDE_FOG_COLOR: 0
@@ -110,8 +110,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9056604, g: 0.8776012, b: 0.83303666, a: 1}
-    - _EmissionColor: {r: 0.19842473, g: 0.2542921, b: 0.8584906, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     - _FogColor: {r: 0.43137258, g: 0.7058824, b: 1, a: 1}
     - _FogEmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
