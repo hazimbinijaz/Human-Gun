@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -41,6 +42,12 @@ public class UIManager : MonoBehaviour
         OB++;
         PlayerPrefs.SetInt("FirstTime",OB);
         SetBarTexts();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+            completeUI.SetActive(true);
     }
 
     void SetBarTexts()
