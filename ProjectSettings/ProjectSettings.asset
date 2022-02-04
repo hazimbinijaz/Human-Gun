@@ -691,7 +691,8 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR
-    7: ODIN_INSPECTOR
+    4: gameanalytics_ironsource_enabled;JUSTTRACK_APPSFLYER_INTEGRATION
+    7: ODIN_INSPECTOR;gameanalytics_ironsource_enabled;JUSTTRACK_APPSFLYER_INTEGRATION
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
         OB++;
         PlayerPrefs.SetInt("FirstTime",OB);
         SetBarTexts();
+        SundaySDK.Tracking.TrackLevelStart(PlayerPrefs.GetInt("Level"));
     }
 
     void SetBarTexts()
@@ -54,6 +55,7 @@ public class UIManager : MonoBehaviour
     }
     public void OnClickStartGame()
     {
+        
         // Elephant.LevelStarted(TheGameManager.Instance._level);
         startUI.SetActive(false);
         inGameUI.SetActive(true);
@@ -64,15 +66,17 @@ public class UIManager : MonoBehaviour
 
     public void ShowLevelCompleteUI()
     {
+        SundaySDK.Tracking.TrackLevelComplete(PlayerPrefs.GetInt("Level"));
         
         inGameUI.SetActive(false);
         completeUI.SetActive(true);
-        
     }
     
     
     public void ShowLevelFailUI()
     {
+        SundaySDK.Tracking.TrackLevelFail(PlayerPrefs.GetInt("Level"));
+
         inGameUI.SetActive(false);
         failUI.SetActive(true);
     }
